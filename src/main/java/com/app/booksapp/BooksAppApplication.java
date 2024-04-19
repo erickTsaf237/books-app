@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class BooksAppApplication {
 
 	public static void main(String[] args) {
-		System.out.println("nous sommes sur tchinda" );
+		System.out.println("nous sommes sur tchindaj" );
 		SpringApplication.run(BooksAppApplication.class, args);
 	}
 
