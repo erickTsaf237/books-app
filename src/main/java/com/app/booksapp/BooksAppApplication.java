@@ -12,6 +12,7 @@ import com.app.booksapp.model.*;
 public class BooksAppApplication {
 
 	public static void main(String[] args) {
+	
 		ApplicationContext ctx = SpringApplication.run(BooksAppApplication.class, args);
 
 		System.out.println("\n\n\n======================================\n");
@@ -38,6 +39,9 @@ public class BooksAppApplication {
 
 
 		System.out.println(blike.getAll());
+
+		System.out.println("Spring Boot");
+		SpringApplication.run(BooksAppApplication.class, args);
 	}
 
 }
