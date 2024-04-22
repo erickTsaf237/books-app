@@ -10,6 +10,7 @@ import com.app.booksapp.service.MyGenericService;
 
 import java.util.List;
 
+
 public abstract class MyGenericRestController<T extends MyGenericService<?, E, ID>,E extends MyEntity<ID>, ID> {
 
     @Autowired
@@ -56,3 +57,8 @@ public abstract class MyGenericRestController<T extends MyGenericService<?, E, I
         }
     }
 }
+
+
+
+
+

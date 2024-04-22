@@ -4,6 +4,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 public interface MyEntity<ID> {
     public ID getId();
-    @JsonIgnore
+    //@JsonIgnore
     public void setId(ID i);
 }
+
+
+
