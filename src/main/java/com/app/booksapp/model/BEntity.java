@@ -21,7 +21,7 @@ public abstract class BEntity implements MyEntity<Long> {
 	public void setId(Long id){this.id = id;}
 
 	BEntity(){
-		id = new Long(-5);
+		id = (long) 5 ;
 	}
 }
 

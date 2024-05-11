@@ -7,7 +7,7 @@ import com.app.booksapp.model.BBook;
 import com.app.booksapp.service.BBookService;
 
 @RestController
-@RequestMapping("book")
+@RequestMapping("/book")
 class BBookContronller extends MyGenericRestController<BBookService, BBook, Long>{
     
 }

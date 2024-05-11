@@ -7,7 +7,7 @@ import com.app.booksapp.model.BComment;
 import com.app.booksapp.service.BCommentService;
 
 @RestController
-@RequestMapping("comment")
+@RequestMapping("/comment")
 public class BCommentContronller extends MyGenericRestController<BCommentService, BComment, Long> {
     
 }

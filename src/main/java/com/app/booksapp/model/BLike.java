@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 
 @Entity
 @Data
+@EqualsAndHashCode(callSuper=false)
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder

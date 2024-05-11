@@ -7,7 +7,7 @@ import com.app.booksapp.model.BLike;
 import com.app.booksapp.service.BLikeService;
 
 @RestController
-@RequestMapping("like")
+@RequestMapping("/like")
 public class BLikeContronller extends MyGenericRestController<BLikeService, BLike, Long>{
     
 }

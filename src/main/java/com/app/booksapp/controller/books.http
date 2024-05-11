@@ -1,0 +1,33 @@
+#Post a book
+POST http://localhost:5000/book/
+Content-Type: application/json
+
+{
+    
+    "titre": "sous la cendre le feux",
+    "annee": "2000" ,
+    "auteur": "Erick Fomekong" ,
+    "editeur": "erick le moulinex" ,
+    "description": "Il s'agit d'un livre qui parle le chose que je n'aarrive pas vraiment a cerner mais de toute facon tou cela me fait fait croire que je sui beaux",
+    "lienFichier": "",
+    "lienImage": "http://localhost:5000/files/Artboar.jpg" 
+}
+
+
+
+
+######Put a book
+PUT http://localhost:5000/book/102
+Content-Type: application/json
+
+{
+    
+    "id": "103",
+    "titre": "sous la cendre le feux",
+    "annee": "2000" ,
+    "auteur": "Erick Fomekong" ,
+    "editeur": "erick le moulinex" ,
+    "description": "Il s'agit d'un livre qui parle le chose que je n'aarrive pas vraiment a cerner mais de toute facon tou cela me fait fait croire que je sui beaux",
+    "lienFichier": "",
+    "lienImage": ""
+}

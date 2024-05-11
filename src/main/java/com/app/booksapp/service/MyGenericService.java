@@ -3,11 +3,9 @@ package com.app.booksapp.service;
 import java.util.List;
 import java.util.Optional;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.app.booksapp.model.MyEntity;
-import org.springframework.stereotype.Service;
 
 
 public abstract class MyGenericService<T extends JpaRepository<E, ID>, E extends MyEntity<ID>, ID> {

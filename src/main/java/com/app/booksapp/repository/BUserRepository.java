@@ -7,5 +7,5 @@ import com.app.booksapp.model.BUser;
 
 @Repository
 public interface BUserRepository extends JpaRepository<BUser,Long>{
-
+    public BUser findByEmail(String email);
 }
