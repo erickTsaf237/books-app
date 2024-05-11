@@ -1,0 +1,14 @@
+<div class="card" style="width: 18rem; margin-bottom: 15px;">
+    <img [src]="book.lienImage==''?'http://localhost:5000/files/no-image.png': book.lienImage"
+    style="height: 184px; width: 286px;" class="card-img-top" [alt]="book.titre">
+    <div class="card-body">
+      <h5 class="card-title">{{book.titre}} </h5>
+      <p class="card-text">{{book.description}}</p>
+      <a [href]="book.lienImage" download="button.txt" class="btn btn-primary">telecharger</a>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">{{book.auteur}} </li>
+        <li class="list-group-item">{{book.editeur}}</li>
+        <li class="list-group-item">{{book.editeur}}</li>
+      </ul>
+    </div>
+  </div>
