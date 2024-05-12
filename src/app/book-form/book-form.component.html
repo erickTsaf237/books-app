@@ -1,0 +1,62 @@
+<div class="container" >
+    <form [formGroup]="bookForm" (ngSubmit)="onSubmit()">
+         <div class="d-flex justify-content-around"><h1>Nouveau livre</h1></div>
+        <div class="mb-3">
+            <label for="titre" class="form-label">Titer du livre</label>
+            <input type="text" [class]="'form-control '+ (formControlIsInvalid(titre)?' is-invalid':'')" id="titre" 
+                placeholder="" formControlName="titre">
+            <div [class]="'invalid-feedback'">
+                Vous devez inserer le titre du livre
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="titre" class="form-label">Auteur du livre</label>
+            <input type="text" [class]="'form-control '+ (formControlIsInvalid(auteur)?' is-invalid':'')" id="auteur" 
+                placeholder="" formControlName="auteur">
+            <div [class]="'invalid-feedback'">
+                Vous devez preciser l'auteur du livre
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="titre" class="form-label">Edidteur du livre</label>
+            <input type="text" [class]="'form-control '+ (formControlIsInvalid(editeur)?' is-invalid':'')" id="editeur" 
+                placeholder="" formControlName="editeur">
+            <div [class]="'invalid-feedback'">
+                Vous devez preciser l'auteur du livre
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="titre" class="form-label">Annee de publication</label>
+            <input type="number" [class]="'form-control '+ (formControlIsInvalid(annee)?' is-invalid':'')" id="annee" 
+            placeholder="" formControlName="annee">
+            <div [class]="'invalid-feedback'">
+                Vous devez ajouter l'annee de publication livre. Comprise entre 1000 et {{getActualFullYear()}}
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+            <textarea [class]="'form-control '+ (formControlIsInvalid(description)? ' is-invalid':'')"
+            rows="3" id="description" placeholder="Entrez la description ici" formControlName="description" ></textarea>
+            @if(formControlIsInvalid(description)){
+                <div class="invalid-feedback">
+                    veuillez donner une description
+                </div>
+            }
+        </div>
+        <div class="mb-3">
+            <input type="file" class="form-control" formControlName="fichierPDF"  (change)="onPDFSelected($event)" aria-label="file example" required>
+            <div class="invalid-feedback">Example invalid form file feedback</div>
+        </div>
+        @if(imageSelectionneeUrl){
+            <div >
+                <img [src]="imageSelectionneeUrl" alt="Image sélectionnée" style="height: 184px; width: 237px;">
+            </div>
+        }
+        <p>Form Status: {{ bookForm.status }}</p>
+        <button type="submit" >valider</button>
+        <div class="col-12">
+            <button class="btn btn-primary" type="submit">Submit form</button>
+        </div>
+    </form>
+</div>

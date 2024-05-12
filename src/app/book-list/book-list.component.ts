@@ -4,11 +4,12 @@ import { Book } from '../book/BookModel';
 import { BookService } from '../book/book.service';
 import { Observable } from 'rxjs';
 import { CommonModule } from '@angular/common';
+import { BookFormComponent } from '../book-form/book-form.component';
 
 @Component({
   selector: 'app-book-list',
   standalone: true,
-  imports: [BookComponent, CommonModule],
+  imports: [BookComponent, CommonModule, BookFormComponent],
   templateUrl: './book-list.component.html',
   styleUrl: './book-list.component.css'
 })
