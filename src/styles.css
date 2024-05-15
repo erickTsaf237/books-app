@@ -1,6 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 @import "bootstrap/dist/css/bootstrap.min.css";
 body{
-    /*background-image: url("http://localhost:5000/files/back.jpg");*/
-    background: linear-gradient(#ffffff,#e4e4e4);
+    background-image: url("http://localhost:5000/files/back.jpg");
+    /*background: linear-gradient(#ffffff,#e4e4e4);*/
+    background-attachment: fixed;
+    background-size: cover;
 }

@@ -14,7 +14,7 @@ import { CommonModule } from '@angular/common';
 })
 export class BookListComponent implements OnInit{
   constructor(private bookService: BookService){
-
+    this.empty = true;
   }
 
   ngOnInit(): void {
@@ -22,6 +22,7 @@ export class BookListComponent implements OnInit{
   }
 
   bookList$: Observable<Book[]>|undefined
+  empty : Boolean
 
   
 }
