@@ -19,7 +19,7 @@
         </div>
         <div class="mb-3">
             <label for="titre" class="form-label">Edidteur du livre</label>
-            <input type="text" [class]="'form-control '+ (formControlIsInvalid(editeur)?' is-invalid':'')" id="editeur" 
+            <input type="text" [class]="'form-control '+ (formControlIsInvalid(editeur) ?' is-invalid':'')" id="editeur" 
                 placeholder="" formControlName="editeur">
             <div [class]="'invalid-feedback'">
                 Vous devez preciser l'auteur du livre
@@ -27,7 +27,7 @@
         </div>
         <div class="mb-3">
             <label for="titre" class="form-label">Annee de publication</label>
-            <input type="number" [class]="'form-control '+ (formControlIsInvalid(annee)?' is-invalid':'')" id="annee" 
+            <input type="number" [class]="'form-control '+ ((formControlIsInvalid(annee))?' is-invalid':'')" id="annee" 
             placeholder="" formControlName="annee">
             <div [class]="'invalid-feedback'">
                 Vous devez ajouter l'annee de publication livre. Comprise entre 1000 et {{getActualFullYear()}}
@@ -47,12 +47,23 @@
         <div class="mb-3">
             <input type="file" class="form-control" formControlName="fichierPDF"  (change)="onPDFSelected($event)" aria-label="file example" required>
             <div class="invalid-feedback">Example invalid form file feedback</div>
+            @if(imageSelectionneeUrl){
+                <div >
+                    <img [src]="imageSelectionneeUrl" alt="Image sélectionnée" style="height: 184px; width: 237px;">
+                </div>
+            }
         </div>
-        @if(imageSelectionneeUrl){
-            <div >
-                <img [src]="imageSelectionneeUrl" alt="Image sélectionnée" style="height: 184px; width: 237px;">
-            </div>
-        }
+
+        <div class="mb-3">
+            <input type="file" class="form-control" formControlName="fichierImage"  (change)="onPDFSelected($event)" aria-label="file example" required>
+            <div class="invalid-feedback">Example invalid form file feedback</div>
+            @if(imageSelectionneeUrl){
+                <div >
+                    <img [src]="imageSelectionneeUrl" alt="Image sélectionnée" style="height: 184px; width: 237px;">
+                </div>
+            }
+        </div>
+        
         <p>Form Status: {{ bookForm.status }}</p>
         <button type="submit" >valider</button>
         <div class="col-12">
