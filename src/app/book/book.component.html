@@ -1,6 +1,6 @@
-<div class="card" style="width: 18rem; margin-bottom: 15px;">
+<div class="card" style="width: 100%; margin-bottom: 15px;">
     <img [src]="book.lienImage==''?'http://localhost:5000/files/no-image.png': book.lienImage"
-    style="height: 184px; width: 286px;" class="card-img-top" [alt]="book.titre">
+    style="height: 184px; /*width: 286px;*/" class="card-img-top" [alt]="book.titre">
     <div class="card-body">
       <h5 class="card-title">{{book.titre}} </h5>
       <p class="card-text">{{book.description}}</p>

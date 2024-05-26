@@ -15,7 +15,7 @@ import { BookFormComponent } from '../book-form/book-form.component';
 })
 export class BookListComponent implements OnInit{
   constructor(private bookService: BookService){
-
+    this.empty = true;
   }
 
   ngOnInit(): void {
@@ -23,6 +23,7 @@ export class BookListComponent implements OnInit{
   }
 
   bookList$: Observable<Book[]>|undefined
+  empty : Boolean
 
   
 }

@@ -1,7 +1,10 @@
 <div class="container" style="margin-top: 30px;">
-    <div class="row row-cols-3">
+    
+   <!--<div class="row row-cols-3">--> 
+    <div style="display: flex; justify-content: flex-start; flex-flow: row wrap;  column-gap: 50px;">
         @for (book of bookList$| async; track book.id) {
-            <app-book [book]="book" />
+            <app-book [book]="book" style="width: 286px;" />
         }
     </div>
+    
 </div>
