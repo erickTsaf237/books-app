@@ -14,12 +14,17 @@ import { BookFormComponent } from '../book-form/book-form.component';
   styleUrl: './book-list.component.css'
 })
 export class BookListComponent implements OnInit{
+  selectedBook: Book | undefined;
   constructor(private bookService: BookService){
     this.empty = true;
   }
 
   ngOnInit(): void {
     this.bookList$ = this.bookService.getAllBooks()
+  }
+
+  showBookDetail(book: Book) {
+    this.selectedBook = book;
   }
 
   bookList$: Observable<Book[]>|undefined

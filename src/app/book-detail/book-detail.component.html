@@ -1,0 +1,27 @@
+@if (book) {
+<div class="container p-4" style="background-color: aliceblue;">
+    <div class="row">
+      <div class="col-md-4">
+        <img [src]="book.lienImage" alt="{{ book.titre }}" class="img-fluid">
+      </div>
+      <div class="col-md-8">
+        <h1>{{ book.titre }}</h1>
+        <p>Auteur: {{ book.auteur }}</p>
+        <p>Éditeur: {{ book.editeur }}</p>
+        <p>Année: {{ book.annee }}</p>
+        <p>{{ book.description }}</p>
+        <div style="display: flex; justify-content: space-around;">
+            <a [href]="book.lienFichier" target="_blank" class="btn btn-primary">Télécharger le fichier</a>
+            <!-- <a (click)="deleteBook()" class="btn btn-danger">delete</a> -->
+            <a (click)="deleteBook()" class="btn btn-danger">delete</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-book-list/>
+}
+@else {
+    <div style="display: flex; justify-content: center;">
+        <h2>Recherche du livre en cours </h2>
+    </div>
+}

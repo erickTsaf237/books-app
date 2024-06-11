@@ -6,7 +6,7 @@ export class Book{
     auteur: string = ""
     editeur: string = ""
     description: string = ""
-    lienFichier: string = ""
-    lienImage: string = ""
+    lienFichier: string = "http://localhost:5000/files/habitude.pdf"
+    lienImage: string = "http://localhost:5000/files/Artboad.jpg"
     
 }

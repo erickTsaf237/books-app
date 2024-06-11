@@ -1,7 +1,9 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
 import { Book } from '../book/BookModel';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { BookService } from '../book/book.service';
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-book-form',
@@ -10,13 +12,39 @@ import { HttpClient } from '@angular/common/http';
   templateUrl: './book-form.component.html',
   styleUrl: './book-form.component.css'
 })
+
+
 export class BookFormComponent implements  OnInit{
+  selectedImageFile: File|null = null;
+  selectedPdfFile: File|null = null;
   imageSelectionneeUrl= ''
+  pdfSelectionneeUrl= ''
+
+
   formData = new FormData();
 onPDFSelected(event: any) {
 
   console.log(event.target.files[0]);
   const file: File = event.target.files[0];
+  this.selectedPdfFile = file;
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (e: any) => {
+        //this.bookForm.setValue({"fichierImage": event.target.files[0]})
+        this.pdfSelectionneeUrl = e.target.result;
+      };
+      reader.readAsDataURL(file);
+    }
+  //throw new Error('Method not implemented.');
+}
+
+onImageSelected(event: any) {
+
+  console.log(event.target.files[0]);
+  const file: File = event.target.files[0];
+  this.selectedImageFile = file;
+  console.log(this.selectedImageFile);
+  
     if (file) {
       const reader = new FileReader();
       reader.onload = (e: any) => {
@@ -27,13 +55,35 @@ onPDFSelected(event: any) {
     }
   //throw new Error('Method not implemented.');
 }
-onSubmit() {
 
 
-  Object.keys(this.bookForm.controls).forEach(key => {
+  async onSubmit() {
+  
+  this.book = this.bookForm.value
+  //const formData = new FormData();
+  if(!this.updateting){
+    this.book.lienImage = "http://localhost:5000/files/Artboar.jpg"
+    this.book.lienFichier = "http://localhost:5000/files/habitude.pdf"
+    this.book = await this.bookService.createBook(this.book)
+  }
+  else{
+    this.book = await this.bookService.updateBook(this.book, this.book.id)
+  }
+  
+  this.router.navigate(['book/', this.book.id])
+  /*this.http.post('http://localhost:5000/files_upload/', this.formData)
+    .subscribe(reponse=>{
+      console.log('fichier envoyee avec succes')
+    },
+    error=>{
+      console.log("une erreur s'est produite")
+      console.log(error)
+    }
+    )*/
+  /*Object.keys(this.bookForm.controls).forEach(key => {
     const control = this.bookForm.get(key);
     this.formData.append(key, control?.value);
-  });
+  });*/
   //this.formData.append(fichierImage, event.target.files[0])
   /*console.log(this.bookForm.value)
   console.log(this.bookForm.status);
@@ -68,12 +118,16 @@ onSubmit() {
     annee : ['', Validators.compose([Validators.max(this.getActualFullYear()), ])],
     editeur: [''],
     description: ['', ],
-    fichierPDF: ['', Validators.compose([Validators.required])],
+    fichierPDF: ['',],
     fichierImage: ['']
   })
-  constructor(private formBuilder: FormBuilder, private http: HttpClient){}
+  constructor(private formBuilder: FormBuilder, private http: HttpClient, private bookService: BookService, private router:Router){}
+
+  updateting: boolean = false
   ngOnInit(): void {
     //this.book.auteur = "522200000"
+    if(this.book.id != '')
+      this.updateting = true
     this.bookForm.patchValue(this.book)
 
 

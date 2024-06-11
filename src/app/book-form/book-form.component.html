@@ -1,5 +1,6 @@
-<div class="container" >
-    <form [formGroup]="bookForm" (ngSubmit)="onSubmit()">
+<div class="container" style="background-color: aquamarine; justify-content: center; display: flex;">
+    <div class="row-cols-8">
+    <form [formGroup]="bookForm" (ngSubmit)="onSubmit()" class="">
          <div class="d-flex justify-content-around"><h1>Nouveau livre</h1></div>
         <div class="mb-3">
             <label for="titre" class="form-label">Titer du livre</label>
@@ -47,15 +48,15 @@
         <div class="mb-3">
             <input type="file" class="form-control" formControlName="fichierPDF"  (change)="onPDFSelected($event)" aria-label="file example" required>
             <div class="invalid-feedback">Example invalid form file feedback</div>
-            @if(imageSelectionneeUrl){
+            <!-- @if(imageSelectionneeUrl){
                 <div >
                     <img [src]="imageSelectionneeUrl" alt="Image sélectionnée" style="height: 184px; width: 237px;">
                 </div>
-            }
+            } -->
         </div>
 
         <div class="mb-3">
-            <input type="file" class="form-control" formControlName="fichierImage"  (change)="onPDFSelected($event)" aria-label="file example" required>
+            <input type="file" class="form-control" formControlName="fichierImage"  (change)="onImageSelected($event)" aria-label="file example" required>
             <div class="invalid-feedback">Example invalid form file feedback</div>
             @if(imageSelectionneeUrl){
                 <div >
@@ -64,10 +65,11 @@
             }
         </div>
         
-        <p>Form Status: {{ bookForm.status }}</p>
-        <button type="submit" >valider</button>
+        <!-- <p>Form Status: {{ bookForm.status }}</p> -->
+        
         <div class="col-12">
-            <button class="btn btn-primary" type="submit">Submit form</button>
+            <button class="btn btn-primary" type="submit">Enregistrer</button>
         </div>
     </form>
+</div>
 </div>
